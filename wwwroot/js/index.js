@@ -26,23 +26,19 @@ window.onload=function(){
     var wate = document.getElementsByClassName('card-wate')[0];
     text.innerText = '网页主体加载完成!';
     document.getElementById('wate-text-info').style.display = "none";
-    setTimeout(function(){// 显示加载完成1秒后执行
-        text.innerText = '';
-        wate.style.width = "0px";
-        // 如果访问端是手机则显示提醒，电脑端则显示动态壁纸
-        var mobile=isMobile();
-        if(mobile){
-            document.getElementsByClassName('warning')[0].style.display = "";
-            document.body.style.backgroundImage = "url('img/bg.png')"
-        }else{
-            document.getElementById('background').style.display = "";
-        }
-        setTimeout(function(){// 等待动画执行完成
-            wate.style.display = "none";
-            document.getElementsByClassName('card-index')[0].style.display = "";
-            document.getElementById('music-control').style.display = ""
-            document.getElementById('music').src = "meda/bg.mp3";
-        },1000);
+    text.innerText = '';
+    wate.style.width = "0px";
+    // 如果访问端是手机则显示提醒，电脑端则显示动态壁纸
+    var mobile=isMobile();
+    if(mobile){
+        document.getElementsByClassName('warning')[0].style.display = "";
+        document.body.style.backgroundImage = "url('https://ycl0609.github.io/wwwroot/img/bg.png')"
+    }else{
+        document.getElementById('background').style.display = "";
+    }
+    setTimeout(function(){// 等待动画执行完成
+        wate.style.display = "none";
+        document.getElementsByClassName('card-index')[0].style.display = "";
     },1000);
 };
 
@@ -157,12 +153,12 @@ function loadExternalResource(url, type) {
 // 加载 waifu.css live2d.min.js waifu-tips.js
 if (screen.width >= 768) {
     Promise.all([
-        loadExternalResource(live2d_path + "/css/waifu.css", "css"),
-        loadExternalResource(live2d_path + "/js/live2d.min.js", "js"),
-        loadExternalResource(live2d_path + "/js/waifu-tips.js", "js")
+        loadExternalResource("https://ycl0609.github.io/wwwroot/css/waifu.css", "css"),
+        loadExternalResource("https://ycl0609.github.io/wwwroot/js/live2d.min.js", "js"),
+        loadExternalResource("https://ycl0609.github.io/wwwroot/js/waifu-tips.js", "js")
     ]).then(() => {
         initWidget({
-            waifuPath: live2d_path + "/waifu-tips.json",
+            waifuPath: "https://ycl0609.github.io/wwwroot/waifu-tips.json",
             cdnPath: live2d_path + "/live2d_API/"
         });
     });
