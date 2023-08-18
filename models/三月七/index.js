@@ -7,7 +7,8 @@ import { MMDAnimationHelper } from 'three/addons/animation/MMDAnimationHelper.js
 let stats;
 let mesh, camera, scene, renderer, effect;
 let helper, physicsHelper;
-let file = (js.length-1) + 'index.pmx';
+const fs = require('fs');
+const file = fs.readFileSync(`${__dirname}/index.pmx`);
 const clock = new THREE.Clock();
 Ammo().then(function (AmmoLib) {
     Ammo = AmmoLib;
