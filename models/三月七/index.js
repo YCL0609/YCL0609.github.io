@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { createRequire } from 'module';
 import Stats from 'three/addons/libs/stats.module.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { OutlineEffect } from 'three/addons/effects/OutlineEffect.js';
