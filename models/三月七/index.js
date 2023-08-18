@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { createRequire } from 'module';
 import Stats from 'three/addons/libs/stats.module.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { OutlineEffect } from 'three/addons/effects/OutlineEffect.js';
@@ -8,8 +7,9 @@ import { MMDAnimationHelper } from 'three/addons/animation/MMDAnimationHelper.js
 let stats;
 let mesh, camera, scene, renderer, effect;
 let helper, physicsHelper;
-const fs = require('fs');
-const file = fs.readFileSync(`${__dirname}/index.pmx`);
+const scriptURL = import.meta.url;
+const scriptPath = scriptURL.substring(0, scriptURL.lastIndexOf('/') + 1);
+const file = scriptPath + 'index.pmx';
 const clock = new THREE.Clock();
 Ammo().then(function (AmmoLib) {
     Ammo = AmmoLib;
