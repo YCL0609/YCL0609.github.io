@@ -14,7 +14,7 @@ const scriptURL = import.meta.url;
 const scriptPath = scriptURL.substring(0, scriptURL.lastIndexOf('/') + 1);
 const file = scriptPath + 'index.pmx';
 const clock = new THREE.Clock();
-const gammaValue = 1000; // 设置伽马值的大小，可根据需要进行调整
+const gammaValue = 1.0; // 设置伽马值的大小，可根据需要进行调整
 
 Ammo().then(function (AmmoLib) {
     Ammo = AmmoLib;
@@ -90,7 +90,7 @@ function animate() {
 
     // 使用 Effect Composer 渲染场景，并将结果通过伽马值调整后输出
     composer.render();
-    renderer.toneMappingExposure = Math.pow(gammaValue, 4.0); // 根据伽马值计算曝光度
+    renderer.toneMappingExposure = Math.pow(gammaValue, 1.0); // 根据伽马值计算曝光度
     renderer.render(scene, camera);
 
     stats.end();
